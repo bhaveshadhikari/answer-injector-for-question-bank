@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Answer Injector for Question Bank ",
+    "version": "1.0",
+    "description": "Watches for question and injects answers using LLM",
+    "permissions": ["scripting","storage"],
+    "host_permissions": [
+    "https://hamrocsit.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "image.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://hamrocsit.com/*"],
+        "js": ["content.js","marked.min.js"],
+        "run_at": "document_idle"
+      }
+    ]
+  }
+  
